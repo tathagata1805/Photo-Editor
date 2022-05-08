@@ -77,6 +77,16 @@ const defaultOptions = [
     },
     unit: "px",
   },
+  // {
+  //   name: "Resize",
+  //   property: "resize",
+  //   value: 10,
+  //   range: {
+  //     min: 0,
+  //     max: 20,
+  //   },
+  //   unit: "%"
+  // }
 ];
 
 // states
@@ -100,13 +110,21 @@ function App() {
 
   function handleRange(e) {
     // update setBtnOptions options not default options
-
     setBtnOptions((preValues) => {
       return preValues.map((option, index) => {
         if (selectedOptionIndex !== index) return option;
         else return { ...option, value: e.target.value };
       });
     });
+  }
+
+  // // handling resizing feature..
+
+  function handleChange(e) {
+    const img = document.getElementById("image");
+    const { value, max } = e.target;
+    img.style.width = `${value * max}px`;
+    img.style.height = `${value * max}px`;
   }
 
   // getting the styles and updating them dynamically..
@@ -175,9 +193,20 @@ function App() {
               onChange={handleRange}
               disabled={file ? false : true}
             />
+            <div className="rangeDiv">
+              <p className="rangeValue">Resize using this Slider</p>
+              <input
+                type="range"
+                min="1"
+                max="20"
+                value="1"
+                id="image"
+                onChange={handleChange}
+                disabled={file ? false : true}
+              />
+            </div>
           </div>
         </div>
-
         <div className="rightDiv">
           <button
             className="downloadBtn"

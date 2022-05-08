@@ -171,9 +171,6 @@ h4 {
 }
 
 @media (max-width: 854px) {
-  *{
-    /* border: 1px solid black; */
-  }
 
   .container {
     border: none;
