@@ -77,16 +77,6 @@ const defaultOptions = [
     },
     unit: "px",
   },
-  // {
-  //   name: "Resize",
-  //   property: "resize",
-  //   value: 10,
-  //   range: {
-  //     min: 0,
-  //     max: 20,
-  //   },
-  //   unit: "%"
-  // }
 ];
 
 // states
@@ -118,7 +108,7 @@ function App() {
     });
   }
 
-  // // handling resizing feature..
+  // handling resizing feature..
 
   function handleChange(e) {
     const img = document.getElementById("image");
@@ -182,9 +172,7 @@ function App() {
             ))}
           </div>
           <div className="rangeDiv">
-            <p className="rangeValue">
-              {selectedOption.value} {selectedOption.unit}
-            </p>
+            <h4 className="resize">Your filters will appear here....</h4>
             <input
               type="range"
               min={selectedOption.range.min}
@@ -193,18 +181,16 @@ function App() {
               onChange={handleRange}
               disabled={file ? false : true}
             />
-            <div className="rangeDiv">
-              <p className="rangeValue">Resize using this Slider</p>
-              <input
-                type="range"
-                min="1"
-                max="20"
-                value="1"
-                id="image"
-                onChange={handleChange}
-                disabled={file ? false : true}
-              />
-            </div>
+            <h4 className="resize">Resize your image using this...</h4>
+            <input
+              type="range"
+              min="1"
+              max="20"
+              value="1"
+              id="image"
+              onChange={handleChange}
+              disabled={file ? false : true}
+            />
           </div>
         </div>
         <div className="rightDiv">
